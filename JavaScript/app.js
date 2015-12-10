@@ -10,33 +10,33 @@ var typeSpeed = 0;
 var cursorChar = '&#9608;';
 
 var originText;
-if (document.getElementById('agent-login')) {
-  originText = [document.getElementById('line1').innerHTML, document.getElementById('line2').innerHTML];
+if ($('#agent-login')) {
+  originText = [$('#line1').html(), $('#line2').html()];
 }
-if (document.getElementById('return-button')) {
-  originText = [('...... ' + localStorage.getItem('AgentAlias') + document.getElementById('line1').innerHTML), document.getElementById('line2').innerHTML];
+if ($('#return-button')[0]) {
+  originText = [('...... ' + localStorage.getItem('AgentAlias') + $('#line1').html()), $('#line2').html()];
 }
 
 var currentTimeout;
 var showCursor;
 
 var typeWriter = function(id, order) {
-  var loc = document.getElementById(id);
+  var loc = $(id);
   var fullText = originText[order];
   var letter = 0;
 
   // this function types one letter per call, then calls the subsequent typeLetter()
   var typeLetter = function() {
     currentTimeout = setTimeout(function() {
-      loc.className = 'visible';
+      loc.removeClass('hidden').addClass('visible');
       letter += 1;
       var showText = fullText.substring(0, letter);
 
       // stops the function from recurring when all letters are typed
       if (letter === fullText.length) {
-        loc.innerHTML = '&gt;&gt; ' + showText;
+        loc.html('&gt;&gt; ' + showText);
       } else {
-        loc.innerHTML = '&gt;&gt; ' + showText + '<span class="typed-cursor">' + cursorChar + '</span>';
+        loc.html('&gt;&gt; ' + showText + '<span class="typed-cursor">' + cursorChar + '</span>');
         typeLetter();
       }
     }, typeSpeed);
@@ -46,13 +46,13 @@ var typeWriter = function(id, order) {
   // show cursor on next line
   var typeTime = fullText.length * typeSpeed + 100;
   showCursor = setTimeout(function() {
-    document.getElementById('cursor-line').className = 'visible';
+    $('#cursor-line').removeClass('hidden').addClass('visible');
   }, typeTime);
 };
 
 var typeLine1 = setTimeout(function() {
-  document.getElementById('cursor-line').className = 'hidden';
-  typeWriter('line1', 0);
+  $('#cursor-line').removeClass('visible').addClass('hiddenn');
+  typeWriter('#line1', 0);
 }, typeWait);
 
 var delayTime1 = typeWait
@@ -60,25 +60,25 @@ var delayTime1 = typeWait
   + 50 + typeGap;
 
 var typeLine2 = setTimeout(function() {
-  document.getElementById('cursor-line').className = 'hidden';
-  typeWriter('line2', 1);
+  $('#cursor-line').removeClass('visible').addClass('hidden');
+  typeWriter('#line2', 1);
 }, delayTime1);
 
 var delayTime2 = originText[1].length * typeSpeed + typeGap;
 
 // specific for index.html
 var showLogin;
-if (document.getElementById('agent-login')) {
+if ($('#agent-login')) {
   showLogin = setTimeout(function() {
-    document.getElementById('agent-login').className = 'visible';
+    $('#agent-login').removeClass('hidden').addClass('visible');
   }, delayTime1 + delayTime2);
 }
 
 // Specific for Fail.html
 var showReturnButton;
-if (document.getElementById('return-button')) {
+if ($('#return-button')) {
   showReturnButton = setTimeout(function() {
-    document.getElementById('return-button').className = 'visible';
+    $('#return-button').removeClass('hidden').addClass('visible');
   }, delayTime1 + delayTime2);
 }
 
@@ -93,25 +93,25 @@ var skip = function() {
 
 // rewrite text with value stored on page load
 var rewriteText = function(id, order) {
-  var loc = document.getElementById(id);
-  loc.innerHTML = '&gt;&gt; ' + originText[order];
-  loc.className = 'visible';
+  var loc = $(id);
+  loc.html('&gt;&gt; ' + originText[order]);
+  loc.removeClass('hidden').addClass('visible');
 };
 
 // trigger skip and rewrite on pressing enter or spacebar
 $(document).keypress(function(key){
   if (key.which === 13 || key.which === 32) {
     skip();
-    rewriteText('line1', 0);
-    rewriteText('line2', 1);
-    document.getElementById('cursor-line').className = 'visible';
+    rewriteText('#line1', 0);
+    rewriteText('#line2', 1);
+    $('#cursor-line').removeClass('hidden').addClass('visible');
 
     // restoring element specific to page
-    if (document.getElementById('agent-login')) {
-      document.getElementById('agent-login').className = 'visible';
+    if ($('#agent-login')) {
+      $('#agent-login').removeClass('hidden').addClass('visible');
     }
-    if (document.getElementById('return-button')) {
-      document.getElementById('return-button').className = 'visible';
+    if ($('#return-button')) {
+      $('#return-button').removeClass('hidden').addClass('visible');
     }
   }
 });
@@ -138,15 +138,15 @@ localize(1);
 
 //Add user name to localStorage
 
-if (document.getElementById('user-button')) {
-  var userButton = document.getElementById('user-button');
-  userButton.addEventListener('click', function(e) {
-    var agentName = document.getElementById('agent-name');
-    var agentAlias = document.getElementById('agent-alias');
-    var error = document.getElementById('input-error');
+if ($('#user-button')) {
+  var userButton = $('#user-button');
+  userButton.on('click', function(e) {
+    var agentName = $('#agent-name');
+    var agentAlias = $('#agent-alias');
+    var error = $('#input-error');
     e.preventDefault();
-    if (agentName.value == '' || agentAlias.value == '') {
-      error.className = 'visible';
+    if (agentName.val('') || agentAlias.val('')) {
+      error.removeClass('hidden').addClass('visible');
     } else {
       tempAgentName = JSON.stringify(agentName.value);
       tempAgentAlias = JSON.stringify(agentAlias.value);
