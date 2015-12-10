@@ -87,7 +87,6 @@ section.progress div {
 
 footer {
   font-size: 0.8em;
-  line-height: 4em;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 2px;
@@ -105,6 +104,8 @@ ul {
 }*/
 
 .footer-links {
+	padding-top: 10px;
+	padding-bottom: 10px;
  border-bottom: 1px solid #ccc;
 }
 
@@ -188,8 +189,11 @@ input[type="text"]:disabled {
   visibility: hidden;
 }
 
-span.warning {
+.warning {
+	font-size: .8em;
+	line-height: 3;
   color: #FF0000;
+  display: block;
 }
 
 /* ----- blinking cursor animation ----- */
