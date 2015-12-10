@@ -3,10 +3,10 @@
 /* ------- content wrapper ------- */
 main {
   max-width: 960px;
-  min-width: 560px;
+  /*min-width: 560px;*/
   margin: 36px auto;
   font-family: 'Raleway', sans-serif;
-  border: 5px solid pink;
+  /*border: 1px solid pink;*/
 }
 
 section {
@@ -20,7 +20,7 @@ h1 {
   text-transform: uppercase;
   margin: 12px 0px;
   font-size: 2.2em;
-  border: 5px solid pink;
+  /*border: 1px solid pink;*/
 }
 
 span#header2 {
@@ -40,7 +40,7 @@ div.fixed-wrapper {
   top: 0px;
   width: 100%;
   max-width: 950px;
-  min-width: 560px;
+  /*min-width: 560px;*/
   text-align: right;
 }
 
@@ -83,12 +83,33 @@ section.progress div {
 #puzzle-10 { width: 97.5%; }
 
 /* ------- footer and hyperlink ------- */
+
+
 footer {
   font-size: 0.8em;
+  line-height: 4em;
   text-transform: uppercase;
-  text-align: right;
+  text-align: center;
   letter-spacing: 2px;
   color: #777;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/*li:first-child {
+	border-bottom: 1px solid #ccc;
+}*/
+
+.footer-links {
+ border-bottom: 1px solid #ccc;
+}
+
+.bullet {
+	display: none;
 }
 
 a {
@@ -206,3 +227,42 @@ span.warning {
   50% { opacity:0; }
   100% { opacity:1; }
 }
+
+/*************************************************
+  Media Queries SMACSS = State
+  *************************************************/
+
+/* Large tablets and small desktops */
+@media screen and (min-width: 670px) {
+
+footer {
+  line-height: 0;
+  text-align: right;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	display: inline-block;
+}
+
+/*li:first-child {
+	border-bottom: 1px solid #ccc;
+}*/
+
+.footer-links {
+ border-bottom: none
+}
+
+.bullet {
+	display: inline-block;
+}
+
+
+
+}
+

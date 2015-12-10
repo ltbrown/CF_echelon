@@ -1,7 +1,11 @@
 // set typing speed and wait times
-var typeWait = 1000;
+// var typeWait = 1000;
+// var typeGap = 1000;
+// var typeSpeed = 40;
+
+var typeWait = 0;
 var typeGap = 1000;
-var typeSpeed = 40;
+var typeSpeed = 0;
 
 var cursorChar = '&#9608;';
 
@@ -101,7 +105,7 @@ $(document).keypress(function(key){
     rewriteText('line1', 0);
     rewriteText('line2', 1);
     document.getElementById('cursor-line').className = 'visible';
-    
+
     // restoring element specific to page
     if (document.getElementById('agent-login')) {
       document.getElementById('agent-login').className = 'visible';
