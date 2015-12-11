@@ -28,7 +28,7 @@ var puzzleData = [{
 ]
 
 
-var NumberQuestion = 0;
+
 var NextQuestion = 0;
 var corAns;
 var wroAns;
@@ -40,8 +40,7 @@ var disableButtons = function() {
 };
 
 
-function CurrentQuestion(Num) {
-  console.log("FIRST",Num);
+function CurrentTFQuestion(Num) {
   var handleBarTemplate = Handlebars.compile($('#question-template').html());
   var insertTemplate = handleBarTemplate(puzzleData[Num]);
   $('#question-holder').append(insertTemplate);
@@ -78,24 +77,25 @@ function CurrentQuestion(Num) {
     stopTimer();
   });
 
-  console.log('function',NextQuestion);
-  console.log('cont',cont);
+
 
   ADDEVENT();
 }
-CurrentQuestion(NextQuestion);
+CurrentTFQuestion(NextQuestion);
 ADDEVENT();
 
 
-document.getElementById('return-button').addEventListener('click', function(e){
-	e.preventDefault();
-  window.location = 'Fail.html';
-});
+
 function ADDEVENT() {
+  document.getElementById('return-button').addEventListener('click', function(e){
+  	e.preventDefault();
+    window.location = 'Fail.html';
+  });
+
 cont.addEventListener('click', function(e){
   e.preventDefault();
   $('#question-holder').empty();
-  CurrentQuestion(NextQuestion);
+  CurrentTFQuestion(NextQuestion);
   NextQuestion++;
 });
 

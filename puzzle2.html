@@ -22,54 +22,8 @@
       </div>
     </div>
 
-    <section class="progress">
-      <div id="puzzle-2">Door 2/10</div>
-    </section>
-
-
-
-  <section class="screen">
-    <article id="question">
-     <code>
-       var Agent = function(alias, country, killCount, completed){<br/>
-          &nbsp;&nbsp;this.alias = alias;<br />
-          &nbsp;&nbsp;this.country = country;<br />
-          &nbsp;&nbsp;this.killCount = killCount;<br />
-          &nbsp;&nbsp;this.completed = completed;<br />
-          };<br />
-          Agent.prototype.contact = function(){<br />
-          &nbsp;&nbsp;call(Agent);<br />
-          };<br />
-          var eliminate = function(){<br />
-          &nbsp;&nbsp;var target=misson;<br />
-          &nbsp;&nbsp;dispose(mission);<br />
-          };<br />
-          Agent.prototype.tracker = function(){<br />
-          &nbsp;&nbsp;if(this.alias === agent0||agent1){<br />
-          &nbsp;&nbsp;&nbsp;contact(this.alias);<br />
-          };<br />
-      </code>
-
-    <p>In the code above, <code>Agent.prototype.tracker</code> is a:</p>
-    <form>
-      <button id="ansa">Method </button>
-      <button id="ansb">Function</button>
-      <button id="ansc">Property</button>
-      <button id="ansd">Variable</button>
-    </form>
-  </article>
-
-    <article id="res-correct" class="hidden">
-       <p>ACCESS GRANTED</p>
-       <p> Functions that are within an object are referred to as methods.</p>
-       <button id="cont">Continue</button>
-    </article>
-
-    <article id="res-wrong" class="hidden">
-      <p><span class="warning">ACCESS DENIED</span></p>
-      <p>Prototype is the keyword and hint.</p>
-      <button id="return-button">Return</button>
-    </article>
+    <div id="question-MC-holder">
+    </div>
 
   </section>
     <footer>
@@ -77,6 +31,44 @@
       <a href="about-us.html">About Us</a>
     </footer>
   </main>
-    <script type="text/javascript" src="JavaScript/puzzle2.js"></script>
+  <script type="text/x-handlebars-template" id="question-template">
+    <section class="progress">
+      <div id="puzzle-{{questionNum}}">Door {{questionNum}}/10</div>
+    </section>
+
+  <section class="screen">
+    <article class="question>">
+      <p>Multiple Choice:</p>
+      {{#if preCode}}
+      <pre><code>{{{preCode}}}</code></pre>
+      {{/if}}
+      <p>{{{mcStatment}}}<p>
+
+      <form>
+        <button id="ansa">{{answerA}} </button>
+        <button id="ansb">{{answerB}}</button>
+        <button id="ansc">{{answerC}}</button>
+        <button id="ansd">{{answerD}}</button>
+      </form>
+    </article>
+
+    <article>
+      <article id="res-correct" class = "hidden">
+        <p>ACCESS GRANTED</p>
+        <p>{{{correctAnswer}}}</p>
+        <button id = "cont">CONTINUE</button>
+      </article>
+
+      <article id="res-wrong" class="hidden">
+        <p><span class="warning">ACCESS DENIED</span></p>
+        <p>{{{wrongAnswer}}}</p>
+        <button id="return-button">Return</button>
+      </article>
+    </article>
+  </section>
+  </script>
+  <script src="JavaScript/jquery-1.11.3.min.js"></script>
+  <script src="JavaScript/lib/handlebars-v4.0.5.js"></script>
+  <script type="text/javascript" src="JavaScript/puzzle2.js"></script>
 </body>
 </html>
