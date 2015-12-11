@@ -46,6 +46,31 @@ var textQuestionData = [
     numberOfAnswers: 1
   },
   {  questionNum: 3,
+    preCode:"function hack() {</br>" +
+    "  var aOne = (3 * 3);</br>" +
+    "  var x = (aOne + 3);</br>" +
+    "  var aTwo = (x + aOne);</br>" +
+    "  console.log(x);</br>" +
+    "}</br></br>" +
+    "hack();</br>"+
+    "console.log(x);</br>"+
+    "var x = 13;</br>",
+    mcStatment: "What will the two <code>console.log</code>s read in the console? (Don't use quotes or spaces and only use lowercase letters for words )",
+    textAnswerOne: '12',
+    textAnswerTwo: 'undefined',
+    correctAnswer: "The value of <code>x</code> is declared twice as a"+
+    " variable. Once inside of a function making it a local variable, and " +
+    "the second time it is declared is globally. However, the <code>console.log(x);"+
+    "</code> in the global spaced is called before <code>x</code> has been declared" +
+     "rendering this log <code>undefined</code>.",
+    wrongAnswer: "The value of <code>x</code> is declared twice as a"+
+    " variable. Once inside of a function making it a local variable, and " +
+    "the second time it is declared is globally. However, the <code>console.log(x);"+
+    "</code> in the global spaced is called before <code>x</code> has been declared" +
+     "rendering this log <code>undefined</code>.",
+    numberOfAnswers: 2
+  },
+  {  questionNum: 4,
     preCode:"var alfa = 1 + '2' + 3;<br />"+
     "var bravo = 3 - '2' + 1;<br />",
     mcStatment: "What is <code>alfa - bravo</code>?",
