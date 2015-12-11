@@ -14,9 +14,6 @@
     var putAlias = $('#putAlias');
 
     var writeAlias = function() {
-      putAlias.innerHTML = userAlias;
-
-    writeAlias();
 
     $('#slugHover').hover(function() {
         $('#center').css({ "-webkit-filter" : "brightness(190%)"});
@@ -68,3 +65,6 @@
   });
 
 }
+// fills in user agent alias on success screen
+putAlias.html(userAlias);
+writeAlias();

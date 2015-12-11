@@ -5,7 +5,7 @@ function stopTimer() {
 }
 
 function timerAll(secsRemain){
-	var secsRemain = 1000000000000000;
+	// var secsRemain = 1000000000000000;
     $('#timer').html(secsRemain);
     interval = setInterval(function() {
       $('#timer').html(--secsRemain);

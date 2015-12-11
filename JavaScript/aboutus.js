@@ -14,25 +14,25 @@ var dec4 = $('#dec4');
 var agentd = $('#agentd');
 var agent4 = $('#agent4');
 
-dec1.addEventListener('click', function(e) {
+dec1.on('click', function(e) {
   e.preventDefault();
   agent1.removeClass('visible').addClass('hidden');
   agenta.removeClass('hidden').addClass('visible');
 });
 
-dec2.addEventListener('click', function(e) {
+dec2.on('click', function(e) {
   e.preventDefault();
   agent2.removeClass('visible').addClass('hidden');
   agentb.removeClass('hidden').addClass('visible');
 });
 
-dec3.addEventListener('click', function(e) {
+dec3.on('click', function(e) {
   e.preventDefault();
   agent3.removeClass('visible').addClass('hidden');
   agentc.removeClass('hidden').addClass('visible');
 });
 
-dec4.addEventListener('click', function(e) {
+dec4.on('click', function(e) {
   e.preventDefault();
   agent4.removeClass('visible').addClass('hidden');
   agentd.removeClass('hidden').addClass('visible');

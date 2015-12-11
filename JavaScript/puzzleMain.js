@@ -1,5 +1,5 @@
 /***** GLOBAL VARIABLE TRACKING CURRENT QUESTION *****/
-var NumberQuestion = 2;
+var NumberQuestion = 0;
 
 /***** QUESTION TYPE TRUE OR FALSE LOGIC *****/
 function questionTypeTF(currentQuestion) {
@@ -30,7 +30,7 @@ function questionTypeTF(currentQuestion) {
       corAns = $('#ans-False');
     }
 
-    timerAll(90);
+    timerAll(puzzleData[Num].timeAllowed);
 
     corAns.on('click', function(e){
       e.preventDefault();
@@ -53,7 +53,7 @@ function questionTypeTF(currentQuestion) {
 
   function addEvent() {
     // If wrong answer go to fail.html
-    $('return-button').on('click', function(e){
+    $('#return-button').on('click', function(e){
     	e.preventDefault();
       window.location = 'Fail.html';
     });
@@ -92,7 +92,8 @@ function questionTypeMC(currentQuestion) {
    correct = $('#res-correct');
    wrong = $('#res-wrong');
 
-    timerAll(90);
+   timerAll(puzzleData[Num].timeAllowed);
+
   if(puzzleData[Num].answer =='a') {
     // Event Listeners for Answers
     ansa.on('click', function(e) {
@@ -270,8 +271,8 @@ function questionTypeText(currentQuestion) {
   	showCor = $('#res-correct');
   	showWro = $('#res-wrong');
 
-    // CALLS FROM UNIVERSAL.JS SETS TIMER TO 90 SECONDS
-  	timerAll(90);
+    // CALLS FROM UNIVERSAL.JS SETS TIMER TO puzzleData[Num] SECONDS
+  	timerAll(puzzleData[Num].timeAllowed);
 
   if (puzzleData[Num].numberOfAnswers == 3) {
   	subButton.on('click', function(e){
