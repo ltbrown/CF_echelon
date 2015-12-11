@@ -5,6 +5,7 @@ function stopTimer() {
 }
 
 function timerAll(secsRemain){
+	var secsRemain = 1000000000000000;
     document.getElementById('timer').innerHTML = secsRemain;
     interval = setInterval(function() {
         document.getElementById('timer').innerHTML = --secsRemain;

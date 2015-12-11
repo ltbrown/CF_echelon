@@ -2,8 +2,8 @@ var currentStage;
 getLocal();
 
 if (currentStage < 4) {
-  window.location.href = 'index.html';
-  alert('Cheater');
+  // window.location.href = 'index.html';
+  // alert('Cheater');
 } else {
 
   var trueButton = document.getElementById('ans-true');
