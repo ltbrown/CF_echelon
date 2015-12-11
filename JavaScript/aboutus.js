@@ -1,39 +1,39 @@
-var dec1 = document.getElementById('dec1');
-var agenta = document.getElementById('agenta');
-var agent1 = document.getElementById('agent1');
+var dec1 = $('#dec1');
+var agenta = $('#agenta');
+var agent1 = $('#agent1');
 
-var dec2 = document.getElementById('dec2');
-var agentb = document.getElementById('agentb');
-var agent2 = document.getElementById('agent2');
+var dec2 = $('#dec2');
+var agentb = $('#agentb');
+var agent2 = $('#agent2');
 
-var dec3 = document.getElementById('dec3');
-var agentc = document.getElementById('agentc');
-var agent3 = document.getElementById('agent3');
+var dec3 = $('#dec3');
+var agentc = $('#agentc');
+var agent3 = $('#agent3');
 
-var dec4 = document.getElementById('dec4');
-var agentd = document.getElementById('agentd');
-var agent4 = document.getElementById('agent4');
+var dec4 = $('#dec4');
+var agentd = $('#agentd');
+var agent4 = $('#agent4');
 
 dec1.addEventListener('click', function(e) {
-  event.preventDefault();
-  agent1.className="hidden";
-  agenta.className="visible";
+  e.preventDefault();
+  agent1.removeClass('visible').addClass('hidden');
+  agenta.removeClass('hidden').addClass('visible');
 });
 
 dec2.addEventListener('click', function(e) {
-  event.preventDefault();
-  agent2.className="hidden";
-  agentb.className="visible";
+  e.preventDefault();
+  agent2.removeClass('visible').addClass('hidden');
+  agentb.removeClass('hidden').addClass('visible');
 });
 
 dec3.addEventListener('click', function(e) {
-  event.preventDefault();
-  agent3.className="hidden";
-  agentc.className="visible";
+  e.preventDefault();
+  agent3.removeClass('visible').addClass('hidden');
+  agentc.removeClass('hidden').addClass('visible');
 });
 
 dec4.addEventListener('click', function(e) {
-  event.preventDefault();
-  agent4.className="hidden";
-  agentd.className="visible";
+  e.preventDefault();
+  agent4.removeClass('visible').addClass('hidden');
+  agentd.removeClass('hidden').addClass('visible');
 });

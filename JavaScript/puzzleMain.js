@@ -1,5 +1,7 @@
-var NumberQuestion = 0;
+/***** GLOBAL VARIABLE TRACKING CURRENT QUESTION *****/
+var NumberQuestion = 2;
 
+/***** QUESTION TYPE TRUE OR FALSE LOGIC *****/
 function questionTypeTF(currentQuestion) {
 
   var corAns;
@@ -11,67 +13,60 @@ function questionTypeTF(currentQuestion) {
     corAns.disabled = true;
   };
 
-
   function CurrentTFQuestion(Num) {
     var handleBarTemplate = Handlebars.compile($('#question-tf-template').html());
     var insertTemplate = handleBarTemplate(puzzleData[Num]);
     $('#question-tf-holder').append(insertTemplate);
+    showCor = $('#res-correct');
+    showWro = $('#res-wrong');
+    cont =  $('#cont');
     if (puzzleData[Num].answer == 'true') {
-      corAns = document.getElementById('ans-True');
-      wroAns = document.getElementById('ans-False');
-      showCor = document.getElementById('res-correct');
-      showWro = document.getElementById('res-wrong');
-      cont =  document.getElementById('cont');
+      corAns = $('#ans-True');
+      wroAns = $('#ans-False');
   //    console.log('answer is true');
     } else {
   //    console.log('answer is false');
-      wroAns = document.getElementById('ans-True');
-      corAns = document.getElementById('ans-False');
-      showCor = document.getElementById('res-correct');
-      showWro = document.getElementById('res-wrong');
-      cont =  document.getElementById('cont');
+      wroAns = $('#ans-True');
+      corAns = $('#ans-False');
     }
 
     timerAll(90);
 
-    corAns.addEventListener('click', function(e){
+    corAns.on('click', function(e){
       e.preventDefault();
-      showCor.className = ('visible');
+      showCor.removeClass('hidden').addClass('visible');
     //  localize(questionNum+1);
       disableButtons();
       stopTimer();
     });
 
-    wroAns.addEventListener('click', function(e){
+    wroAns.on('click', function(e){
       e.preventDefault();
-      showWro.className = ('visible');
+      showWro.removeClass('hidden').addClass('visible');
       disableButtons();
       stopTimer();
     });
-
-  //  ADDEVENT();
   }
-  CurrentTFQuestion(currentQuestion);
-  ADDEVENT();
 
-  function ADDEVENT() {
-    document.getElementById('return-button').addEventListener('click', function(e){
+  CurrentTFQuestion(currentQuestion);
+  addEvent();
+
+  function addEvent() {
+    // If wrong answer go to fail.html
+    $('return-button').on('click', function(e){
     	e.preventDefault();
       window.location = 'Fail.html';
     });
-
-  cont.addEventListener('click', function(e){
-    e.preventDefault();
-    $('#question-tf-holder').empty();
-    typeOfQuestion(NumberQuestion);
-
-
-  });
-
+    // If correct answer go to next question
+    cont.on('click', function(e){
+      e.preventDefault();
+      $('#question-tf-holder').empty();
+      typeOfQuestion(NumberQuestion);
+    });
   }
-
 }
 
+/***** QUESTION TYPE MULTIPLE CHOICE LOGIC *****/
 function questionTypeMC(currentQuestion) {
   var ansa;
   var ansb;
@@ -90,131 +85,131 @@ function questionTypeMC(currentQuestion) {
     $('#question-MC-holder').append(insertTemplate);
 
     // Add Event Listen buttons functions:
-   ansa = document.getElementById('ansa');
-   ansb = document.getElementById('ansb');
-   ansc = document.getElementById('ansc');
-   ansd = document.getElementById('ansd');
-   correct = document.getElementById('res-correct');
-   wrong = document.getElementById('res-wrong');
+   ansa = $('#ansa');
+   ansb = $('#ansb');
+   ansc = $('#ansc');
+   ansd = $('#ansd');
+   correct = $('#res-correct');
+   wrong = $('#res-wrong');
 
     timerAll(90);
   if(puzzleData[Num].answer =='a') {
     // Event Listeners for Answers
-    ansa.addEventListener('click', function(e) {
+    ansa.on('click', function(e) {
       e.preventDefault();
     //  localize(3);
-      correct.className="visible";
+      correct.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansb.addEventListener('click', function(e) {
+    ansb.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansc.addEventListener('click', function(e) {
+    ansc.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansd.addEventListener('click', function(e){
+    ansd.on('click', function(e){
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
   } else if (puzzleData[Num].answer =='b') {
     // Event Listeners for Answers
-    ansb.addEventListener('click', function(e) {
+    ansb.on('click', function(e) {
       e.preventDefault();
     //  localize(3);
-      correct.className="visible";
+      correct.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansa.addEventListener('click', function(e) {
+    ansa.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansc.addEventListener('click', function(e) {
+    ansc.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansd.addEventListener('click', function(e){
+    ansd.on('click', function(e){
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
   } else if (puzzleData[Num].answer =='c') {
     // Event Listeners for Answers
-    ansc.addEventListener('click', function(e) {
+    ansc.on('click', function(e) {
       e.preventDefault();
     //  localize(3);
-      correct.className="visible";
+      correct.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansa.addEventListener('click', function(e) {
+    ansa.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansb.addEventListener('click', function(e) {
+    ansb.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansd.addEventListener('click', function(e){
+    ansd.on('click', function(e){
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
   } else if (puzzleData[Num].answer =='d') {
     // Event Listeners for Answers
-    ansd.addEventListener('click', function(e) {
+    ansd.on('click', function(e) {
       e.preventDefault();
     //  localize(3);
-      correct.className="visible";
+      correct.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansa.addEventListener('click', function(e) {
+    ansa.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansc.addEventListener('click', function(e) {
+    ansc.on('click', function(e) {
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
 
-    ansb.addEventListener('click', function(e){
+    ansb.on('click', function(e){
       e.preventDefault();
-      wrong.className="visible";
+      wrong.removeClass('hidden').addClass("visible");
       disableButtons();
       stopTimer();
     });
@@ -231,12 +226,12 @@ function questionTypeMC(currentQuestion) {
 
   function addEvent() {
   //Continue and Returns buttons.
-    document.getElementById('return-button').addEventListener('click', function(e){
+    $('#return-button').on('click', function(e){
       e.preventDefault();
       window.location = 'Fail.html';
     });
 
-    document.getElementById('cont').addEventListener('click', function(e) {
+    $('#cont').on('click', function(e) {
       e.preventDefault();
       $('#question-MC-holder').empty();
       typeOfQuestion(NumberQuestion);
@@ -247,7 +242,7 @@ function questionTypeMC(currentQuestion) {
 }
 
 
-
+/***** QUESTION TYPE TEXT LOGIC *****/
 function questionTypeText(currentQuestion) {
   var anOne;
   var anTwo;
@@ -268,54 +263,55 @@ function questionTypeText(currentQuestion) {
     var insertTemplate = handleBarTemplate(puzzleData[Num]);
     $('#question-Text-holder').append(insertTemplate);
 
-  	anOne = document.getElementById('aOne');
-  	anTwo = document.getElementById('aTwo');
-  	anThree = document.getElementById('aThree');
-  	subButton = document.getElementById('subButt');
-  	showCor = document.getElementById('res-correct');
-  	showWro = document.getElementById('res-wrong');
+  	anOne = $('#aOne');
+  	anTwo = $('#aTwo');
+  	anThree = $('#aThree');
+  	subButton = $('#subButt');
+  	showCor = $('#res-correct');
+  	showWro = $('#res-wrong');
 
-
+    // CALLS FROM UNIVERSAL.JS SETS TIMER TO 90 SECONDS
   	timerAll(90);
 
   if (puzzleData[Num].numberOfAnswers == 3) {
-  	subButton.addEventListener('click', function(e){
-  		event.preventDefault();
-  		if (anOne.value == puzzleData[Num].textAnswerOne && anTwo.value == puzzleData[Num].textAnswerTwo && anThree.value == puzzleData[Num].textAnswerThree) {
-  			showCor.className = ('visible');
+  	subButton.on('click', function(e){
+      console.log('submit button clicked');
+  		e.preventDefault();
+  		if (anOne.val() == puzzleData[Num].textAnswerOne && anTwo.val() == puzzleData[Num].textAnswerTwo && anThree.val() == puzzleData[Num].textAnswerThree) {
+  			showCor.removeClass('hidden').addClass('visible');
   			// localize(4);
   			disableButtons();
   			stopTimer();
   		} else {
-  			showWro.className = ('visible');
+  			showWro.removeClass('hidden').addClass('visible');
   			disableButtons();
   			stopTimer();
   		}
   	});
   } else if (puzzleData[Num].numberOfAnswers == 2) {
-  	subButton.addEventListener('click', function(e){
-  		event.preventDefault();
-  		if (anOne.value == puzzleData[Num].textAnswerOne && anTwo.value == puzzleData[Num].textAnswerTwo) {
-  			showCor.className = ('visible');
+  	subButton.on('click', function(e){
+  		e.preventDefault();
+  		if (anOne.val() == puzzleData[Num].textAnswerOne && anTwo.val() == puzzleData[Num].textAnswerTwo) {
+  			showCor.removeClass('hidden').addClass('visible');
   			// localize(4);
   			disableButtons();
   			stopTimer();
   		} else {
-  			showWro.className = ('visible');
+  			showWro.removeClass('hidden').addClass('visible');
   			disableButtons();
   			stopTimer();
   		}
   	});
   } else if (puzzleData[Num].numberOfAnswers == 1) {
-  	subButton.addEventListener('click', function(e){
-  		event.preventDefault();
-  		if (anOne.value == puzzleData[Num].textAnswerOne) {
-  			showCor.className = ('visible');
+  	subButton.on('click', function(e){
+  		e.preventDefault();
+  		if (anOne.val() == puzzleData[Num].textAnswerOne) {
+  			showCor.removeClass('hidden').addClass('visible');
   			// localize(4);
   			disableButtons();
   			stopTimer();
   		} else {
-  			showWro.className = ('visible');
+  			showWro.removeClass('hidden').addClass('visible');
   			disableButtons();
   			stopTimer();
   		}
@@ -330,14 +326,14 @@ function questionTypeText(currentQuestion) {
   addEvent();
 
   function addEvent() {
-  	document.getElementById('cont').addEventListener('click', function(e){
+  	$('#cont').on('click', function(e){
       e.preventDefault();
       $('#question-Text-holder').empty();
       typeOfQuestion(NumberQuestion);
 
   	});
 
-  	document.getElementById('return-button').addEventListener('click', function(e){
+  	$('#return-button').on('click', function(e){
   		e.preventDefault();
   		window.location.href = ('Fail.html');
   	});

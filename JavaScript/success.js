@@ -1,6 +1,6 @@
 
-    var door = document.getElementById('door');
-    var prize = document.getElementById('prize');
+    var door = $('#door');
+    var prize = $('#prize');
 
     var tempName = localStorage.getItem('AgentName');
     var tempAlias = localStorage.getItem('AgentAlias');
@@ -11,12 +11,10 @@
   //  console.log('username',userName);
   //  console.log('useralias',userAlias);
 
-    var putAlias = document.getElementById('putAlias');
+    var putAlias = $('#putAlias');
 
     var writeAlias = function() {
-  //    putAlias.innerHTML = userAlias;
-      putAlias.innerHTML = 'treu';
-
+      putAlias.innerHTML = userAlias;
 
     writeAlias();
 
@@ -32,48 +30,41 @@
         $('#left').css({ "-webkit-filter" : "brightness(100%)"});
         $('#right').css({ "-webkit-filter" : "brightness(100%)"});
         // $('#slugHover').css({"z-index": "5"});
-
-
     });
 
     // filter: drop-shadow(5px 5px 10px #ccc);
 
     $('#slugHover').on('click', function() {
+      var $center = $("#center"), degree = 0, timer;
+      rotate();
+      function rotate() {
+        $center.css({ '-webkitTransform': 'rotate(' + degree + 'deg)'});
+        $center.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});
+        timer = setTimeout(function() {
+            ++degree; rotate();
+        },10);
+      }
 
+    setTimeout(function() {
+      clearTimeout(timer);
+      $('#right').animate({
+          left: '+=200px'
+      }, 2000);
+      $('#left').animate({
+          left: '-=200px'
+      }, 2000);
+      $('#center').animate({
+          left: '+=200px'
+      }, 2000);
+    }, 2000);
 
-        var $center = $("#center"), degree = 0, timer;
-        rotate();
-        function rotate() {
+    setTimeout(function(){
+      prize.removeClass('hidden').addClass('visible');
+    }, 4000);
 
-            $center.css({ '-webkitTransform': 'rotate(' + degree + 'deg)'});
-            $center.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});
-            timer = setTimeout(function() {
-                ++degree; rotate();
-            },10);
-        }
+    $('#slugHover').off('click');
+    $('#slugHover').unbind('mouseenter mouseleave');
 
-        setTimeout(function() {
-            clearTimeout(timer);
-            $('#right').animate({
-                left: '+=200px'
-            }, 2000);
-            $('#left').animate({
-                left: '-=200px'
-            }, 2000);
-            $('#center').animate({
-                left: '+=200px'
-            }, 2000);
-        }, 2000);
-
-      setTimeout(function(){
-        prize.className = 'visible';
-      }, 4000);
-
-      $('#slugHover').off('click');
-      $('#slugHover').unbind('mouseenter mouseleave');
-
-    });
-
-
+  });
 
 }
