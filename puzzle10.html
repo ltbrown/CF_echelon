@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+
 <html>
 <head>
+
   <title>Echelon.JS</title>
   <link rel="stylesheet" type="text/css" href="Css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="Css/CSS.css">
+  <link rel="stylesheet" type="text/css" href="Css/base.css">
   <script src="JavaScript/universal.js"></script>
 </head>
 
@@ -20,42 +22,139 @@
       </div>
     </div>
 
-    <section class="progress">
-      <div id="puzzle-10">Door 10/10</div>
+	<div id="question-tf-holder">
+	</div>
+
+  <div id="question-MC-holder">
+  </div>
+
+  <div id="question-Text-holder">
+  </div>
+
+<footer>
+  <a href="index.html">Home</a> &bull;
+  <a href="about-us.html">About Us</a>
+</footer>
+  </main>
+
+  <script type="text/x-handlebars-template" id="question-tf-template">
+  	<section class="progress">
+      <div id="puzzle-{{questionNum}}">Door {{questionNum}}/10</div>
     </section>
 
-    <section class="screen">
-      <article id="question">
-        <code>
-          var alfa = 1 + '2' + 3;<br />
-          var bravo = 3 - '2' + 1;<br />
-        </code>
-        <p>What is <code>alfa - bravo</code>?</p>
-        <form>
-          <input type="text" id="text-input">
-          <button id="submit-button">Submit</button>
-        </form>
-      </article>
+	<section class="screen">
+		<article class="question>">
+		<p>True or False:</p>
+		{{#if preCode}}
+		<pre><code>{{{preCode}}}</code></pre>
+		{{/if}}
+		<p>{{{tfStatment}}}<p>
 
-      <article id="res-correct" class="hidden">
+		<form>
+			<button id="ans-True" >TRUE</button>
+			<button id="ans-False">FALSE</button></br>
+		</form>
+		</article>
+
+		<article>
+			<article id="res-correct" class = "hidden">
+				<p>ACCESS GRANTED</p>
+				<p>{{{correctAnswer}}}</p>
+				<button id = "cont">CONTINUE</button>
+			</article>
+
+			<article id="res-wrong" class="hidden">
+				<p><span class="warning">ACCESS DENIED</span></p>
+				<p>{{{wrongAnswer}}}</p>
+				<button id="return-button">Return</button>
+			</article>
+		</article>
+	</section>
+  </script>
+
+  <script type="text/x-handlebars-template" id="question-MC-template">
+    <section class="progress">
+      <div id="puzzle-{{questionNum}}">Door {{questionNum}}/10</div>
+    </section>
+
+  <section class="screen">
+    <article class="question>">
+      <p>Multiple Choice:</p>
+      {{#if preCode}}
+      <pre><code>{{{preCode}}}</code></pre>
+      {{/if}}
+      <p>{{{mcStatment}}}<p>
+
+      <form>
+        <button id="ansa">{{answerA}} </button>
+        <button id="ansb">{{answerB}}</button>
+        <button id="ansc">{{answerC}}</button>
+        <button id="ansd">{{answerD}}</button>
+      </form>
+    </article>
+
+    <article>
+      <article id="res-correct" class = "hidden">
         <p>ACCESS GRANTED</p>
-        <p>JavaScript uses weak typing and type coercion. If only plus operators (+) are present, numbers and strings are concatenated into a string. With the presence of a minus operator (-), strings are coerced to numbers.</p>
-        <button id="cont">Continue</button>
+        <p>{{{correctAnswer}}}</p>
+        <button id = "cont">CONTINUE</button>
       </article>
 
       <article id="res-wrong" class="hidden">
         <p><span class="warning">ACCESS DENIED</span></p>
-        <p>JavaScript uses weak typing and type coercion. If only plus operators (+) are present, numbers and strings are concatenated into a string. With the presence of a minus operator (-), strings are coerced to numbers.</p>
+        <p>{{{wrongAnswer}}}</p>
         <button id="return-button">Return</button>
       </article>
+    </article>
+  </section>
+  </script>
 
+  <script type="text/x-handlebars-template" id="question-Text-template">
+    <section class="progress">
+      <div id="puzzle-{{questionNum}}">Door {{questionNum}}/10</div>
     </section>
 
-    <footer>
-      <a href="index.html">Home</a> &bull;
-      <a href="about-us.html">About Us</a>
-    </footer>
-  </main>
+  <section class="screen">
+    <article class="question>">
+      <p>Text Question:</p>
+      {{#if preCode}}
+      <pre><code>{{{preCode}}}</code></pre>
+      {{/if}}
+      <p>{{{mcStatment}}}<p>
+
+      <form>
+        {{#if textAnswerOne}}
+        1:<input type="text" id="aOne"></input></br>
+        {{/if}}
+        {{#if textAnswerTwo}}
+        2:<input type="text" id="aTwo"></input></br>
+        {{/if}}
+        {{#if textAnswerThree}}
+        3:<input type="text" id="aThree"></input></br></br>
+        {{/if}}
+        <button id="subButt">Submit</button>
+      </form>
+    </article>
+
+    <article>
+      <article id="res-correct" class = "hidden">
+        <p>ACCESS GRANTED</p>
+        <p>{{{correctAnswer}}}</p>
+        <button id = "cont">CONTINUE</button>
+      </article>
+
+      <article id="res-wrong" class="hidden">
+        <p><span class="warning">ACCESS DENIED</span></p>
+        <p>{{{wrongAnswer}}}</p>
+        <button id="return-button">Return</button>
+      </article>
+    </article>
+  </section>
+  </script>
+
+  <script src="JavaScript/jquery-1.11.3.min.js"></script>
+  <script src="JavaScript/lib/handlebars-v4.0.5.js"></script>
   <script type="text/javascript" src="JavaScript/puzzle10.js"></script>
+  <script type="text/javascript" src="JavaScript/puzzle4.js"></script>
 </body>
 </html>

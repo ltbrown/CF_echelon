@@ -1,10 +1,7 @@
 var currentStage;
 getLocal();
 
-if (currentStage < 11) {
-  window.location.href = 'index.html';
-  alert('Cheater');
-} else {
+
 
     var door = document.getElementById('door');
     var prize = document.getElementById('prize');
@@ -18,8 +15,7 @@ if (currentStage < 11) {
 
     var writeAlias = function() {
       putAlias.innerHTML = userAlias;
-    };
-
+  
 
     writeAlias();
 

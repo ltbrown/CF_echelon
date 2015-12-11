@@ -154,7 +154,7 @@ if ($('#user-button')) {
       localStorage.setItem('AgentAlias', tempAgentAlias);
       agentName.value = '';
       agentAlias.value = '';
-      window.location.href = 'puzzle1.html';
+      window.location.href = 'puzzle10.html';
     }
   });
 }

@@ -84,7 +84,7 @@ var disableButtons = function () {
 };
 
 function CurrentMCQuestion(Num) {
-  var handleBarTemplate = Handlebars.compile($('#question-template').html());
+  var handleBarTemplate = Handlebars.compile($('#question-MC-template').html());
   var insertTemplate = handleBarTemplate(multipleChoiceData[Num]);
   $('#question-MC-holder').append(insertTemplate);
 

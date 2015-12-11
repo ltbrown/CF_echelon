@@ -41,9 +41,9 @@ var disableButtons = function() {
 
 
 function CurrentTFQuestion(Num) {
-  var handleBarTemplate = Handlebars.compile($('#question-template').html());
+  var handleBarTemplate = Handlebars.compile($('#question-tf-template').html());
   var insertTemplate = handleBarTemplate(puzzleData[Num]);
-  $('#question-holder').append(insertTemplate);
+  $('#question-tf-holder').append(insertTemplate);
   if (puzzleData[Num].answer == 'true') {
     corAns = document.getElementById('ans-True');
     wroAns = document.getElementById('ans-False');
@@ -94,7 +94,7 @@ function ADDEVENT() {
 
 cont.addEventListener('click', function(e){
   e.preventDefault();
-  $('#question-holder').empty();
+  $('#question-tf-holder').empty();
   CurrentTFQuestion(NextQuestion);
   NextQuestion++;
 });

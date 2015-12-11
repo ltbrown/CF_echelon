@@ -103,7 +103,7 @@ var disableButtons = function() {
 }
 
 function CurrentTextQuestion(Num) {
-  var handleBarTemplate = Handlebars.compile($('#question-template').html());
+  var handleBarTemplate = Handlebars.compile($('#question-Text-template').html());
   var insertTemplate = handleBarTemplate(textQuestionData[Num]);
   $('#question-Text-holder').append(insertTemplate);
 
