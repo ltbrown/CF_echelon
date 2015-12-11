@@ -145,7 +145,7 @@ if ($('#user-button')) {
     var agentAlias = $('#agent-alias');
     var error = $('#input-error');
     e.preventDefault();
-    if (agentName.val('') || agentAlias.val('')) {
+    if (agentName.val() == '' || agentAlias.val() == '') {
       error.removeClass('hidden').addClass('visible');
     } else {
       tempAgentName = JSON.stringify(agentName.value);

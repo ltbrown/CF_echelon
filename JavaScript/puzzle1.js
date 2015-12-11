@@ -1,3 +1,16 @@
+var puzzleData = [{
+
+}]
+
+var handleBarTemplate = Handlebars.compile($('question-template').html());
+var insertTemplate = handleBarTemplate(puzzleData[0]);
+
+$('#question-holder').append(insertTemplate);
+
+
+
+
+
 var currentStage;
 getLocal();
 

@@ -3,8 +3,8 @@ getLocal();
 console.log(currentStage);
 
 if (currentStage < 2) {
-  window.location.href = 'index.html';
-  alert('Cheater');
+  // window.location.href = 'index.html';
+  // alert('Cheater');
 } else {
 
   // Add Event Listen buttons functions:

@@ -11,11 +11,9 @@
 
 <body>
   <main>
-
     <header>
       <h1>Echelon<span id="header2">.JS</span></h1>
     </header>
-
 
     <div class="fixed-wrapper">
       <div class="timer-wrapper">
@@ -24,55 +22,53 @@
       </div>
     </div>
 
-
-    <section class="progress">
-      <div id="puzzle-1">Door 1/10</div>
-    </section>
+	<div id="question-holder">
 
 
-	<section class="screen">
+	</div>
 
-		<article class="question>"><code>var nebulaePosition = function (x, y, z) {
-			</br>
-
-			&nbsp;&nbsp;var locate = x * z;</br>
-			&nbsp;&nbsp;var rad = y + z;</br>
-			&nbsp;&nbsp;var tri = Math.floor((locate - y) + (rad - x));</br>
-			&nbsp;&nbsp;return tri;</br>
-			};
-			</br>
-      </br>
-			nebulaePosition(2.7, 3.2, 4.5);</code></br></br>
-			<p>The nebulaePosition function will return 13.95<p>
-
-
-			<form>
-				<button id="ans-True" value>TRUE</button>
-				<button id="ans-False">FALSE</button></br>
-			</form>
-		</article>
-		<article>
-
-	<article id="res-correct" class = "hidden">
-		<p>ACCESS GRANTED</p>
-		<p>The function <code>Math.floor</code> eliminates the decimal of a value and rounds it to the lowest whole number.</p>
-		<button id = "cont">CONTINUE</button>
-	</article>
-
-	<article id="res-wrong" class="hidden">
-		<p><span class="warning">ACCESS DENIED</span></p>
-		<p>The function <code>Math.floor</code> eliminates the decimal of a value and rounds it to the lowest whole number.</p>
-		<button id="return-button">Return</button>
-	</article>
-
-</section>
 
 <footer>
   <a href="index.html">Home</a> &bull;
   <a href="about-us.html">About Us</a>
 </footer>
-
   </main>
+  <script type="text/x-handlebars-template" id="question-template">
+  	<section class="progress">
+      <div id="puzzle-{{questionNum}}">Door {{questionNum}}/10</div>
+    </section>
+
+	<section class="screen">
+		<article class="question>">
+		<p>True or False:</p>
+		{{#if preCode}}
+		<pre><code>{{preCode}}</code></pre>
+		{{/if}}
+		<p>{{{tfStatment}}}<p>
+
+		<form>
+			<button id="ans-True" value>TRUE</button>
+			<button id="ans-False">FALSE</button></br>
+		</form>
+		</article>
+
+		<article>
+			<article id="res-correct" class = "hidden">
+				<p>ACCESS GRANTED</p>
+				<p>{{{correctAnswer}}}</p>
+				<button id = "cont">CONTINUE</button>
+			</article>
+
+			<article id="res-wrong" class="hidden">
+				<p><span class="warning">ACCESS DENIED</span></p>
+				<p>{{{wrongAnswer}}}</p>
+				<button id="return-button">Return</button>
+			</article>
+		</article>
+	</section>
+  </script>
+  <script src="JavaScript/jquery-1.11.3.min.js"></script>
+  <script src="JavaScript/lib/handlebars-v4.0.5.js"></script>
   <script type="text/javascript" src="JavaScript/puzzle1.js"></script>
 </body>
 </html>
