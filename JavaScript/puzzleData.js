@@ -11,7 +11,8 @@ var puzzleData = [
   "and rounds it to the lowest whole number.",
   wrongAnswer:"The function <code> Math.floor</code> eliminates the decimal of a value " +
   "and rounds it to the lowest whole number.",
-  answer: 'false'
+  answer: 'false',
+  timeAllowed: 90
 },
 {
   questionType:'multipleChoice',
@@ -42,7 +43,8 @@ var puzzleData = [
   "and rounds it to the lowest whole number.",
   wrongAnswer:"The function <code> Math.floor</code> eliminates the decimal of a value " +
   "and rounds it to the lowest whole number.",
-  answer: 'a'
+  answer: 'a',
+  timeAllowed: 90
 },
 {
   questionType:'text',
@@ -69,7 +71,8 @@ var puzzleData = [
   wrongAnswer:"The variable <code>droid</code> is an array with its items being two arrays."+
   " The first index identifier selects which array we are accessing inside <code>droid</code>"+
   " and the second index selects the item inside of the nested array",
-  numberOfAnswers: 3
+  numberOfAnswers: 3,
+  timeAllowed: 90
 },
 {
   questionType:'tf',
@@ -77,7 +80,8 @@ var puzzleData = [
   tfStatment: "<code> typeof(new Boolean(false))</code> will return <code>'boolean'</code>.",
   correctAnswer: "The <code>new</code> keyword calls for a boolean object.",
   wrongAnswer: "Hint: The <code>new</code> keyword calls for an object.",
-  answer: 'false'
+  answer: 'false',
+  timeAllowed: 90
 },
 {
 questionType:'multipleChoice',
@@ -101,7 +105,8 @@ correctAnswer: "The function's for-loop appends each element in the array in the
 " The function then returns the previous sibling of the last child appended.",
 wrongAnswer:"The function's for-loop appends each element in the array in the reverse order."+
 " The function then returns the previous sibling of the last child appended.",
-answer: 'd'
+answer: 'd',
+timeAllowed: 90
 },
 {
     questionType:'text',
@@ -124,7 +129,8 @@ answer: 'd'
     textAnswerOne: 'this.',
     correctAnswer: "When adding properties and methods to an object constructor, <code>this.</code> needs to be used.",
     wrongAnswer:"When adding properties and methods to an object constructor, <code>this.</code> needs to be used.",
-    numberOfAnswers: 1
+    numberOfAnswers: 1,
+    timeAllowed: 90
   },
   {
     questionType:'tf',
@@ -132,7 +138,8 @@ answer: 'd'
     tfStatment: "Given <code>z</code> is <code>true</code> and <code>x || (!y &amp;&amp; z)</code> is <code>false</code>, <br />what must be the boolean value of <code>y</code>?",
     correctAnswer: "Both <code>x</code> and <code>(!y &amp;&amp; z)</code> must be <code>false</code> if <code>x || (!y &amp;&amp; z)</code> is <code>false</code>. <code>(!y &amp;&amp; z)</code> is <code>false</code> when at least one of the clauses is <code>false</code>. Since <code>z</code> is <code>true</code>, <code>!y</code> must be <code>false</code>.",
     wrongAnswer: "Both <code>x</code> and <code>(!y &amp;&amp; z)</code> must be <code>false</code> if <code>x || (!y &amp;&amp; z)</code> is <code>false</code>. <code>(!y &amp;&amp; z)</code> is <code>false</code> when at least one of the clauses is <code>false</code>. Since <code>z</code> is <code>true</code>, <code>!y</code> must be <code>false</code>.",
-    answer: 'true'
+    answer: 'true',
+    timeAllowed: 90
   },
   {
   questionType:'multipleChoice',
@@ -154,7 +161,8 @@ answer: 'd'
   " for even numbers and <code>Bond</code> for odd (<code>machina[i] % 2 === 1</code>).",
   wrongAnswer:"The for-loop iterates by two and logs <code>James</code>"+
   " for even numbers and <code>Bond</code> for odd (<code>machina[i] % 2 === 1</code>).",
-  answer: 'd'
+  answer: 'd',
+  timeAllowed: 90
 },
 { questionType:'text',
   questionNum: 9,
@@ -180,7 +188,8 @@ answer: 'd'
   "the second time it is declared is globally. However, the <code>console.log(x);"+
   "</code> in the global spaced is called before <code>x</code> has been declared" +
    "rendering this log <code>undefined</code>.",
-  numberOfAnswers: 2
+  numberOfAnswers: 2,
+  timeAllowed: 90
 },
 {
   questionType:'text',
@@ -195,6 +204,7 @@ answer: 'd'
   wrongAnswer:"JavaScript uses weak typing and type coercion. If only"+
   " plus operators (+) are present, numbers and strings are concatenated into"+
   " a string. With the presence of a minus operator (-), strings are coerced to numbers.",
-  numberOfAnswers: 1
+  numberOfAnswers: 1,
+  timeAllowed: 90
 }
 ]

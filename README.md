@@ -2,9 +2,16 @@
 
 Pair Programming: Laurie and Max
 
+## User Stories
+ - As a developer, I want the use jQuery for all DOM and event listener code. (I was originally mostly vanilla javascript).
+ - As a developer, I want to use a template per question type to eliminate redundant code (DRY).
+ - As an author, I want one location to type in my questions and answers (not have to make a new html and js file every time I add a question).
+ - As an viewer, I want to be able to use the page on a mobile device and have it look nice.
+ - As a developer, I want to use follow the mobile first principle.
+
+
+## Original README
 Created for CodeFellows 201 class, OCT 2015 by Don Chatelain, David Flegal, Natalie Chow, and Mike Harrison.
-
-
 
 *FOR DEBUGGING/ALTERING-
 	JavaScript/universal.js holds properties carried throughout most pages. Including the local storage script that does not allow the user to skip puzzles. For debugging, local storage key "WillFerrell" needs to be changed to a value of 10 to access all html files in browser. Puzzle1.html resets "WillFerrell"*
