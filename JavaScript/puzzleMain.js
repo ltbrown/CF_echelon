@@ -22,9 +22,9 @@ function questionTypeTF(currentQuestion) {
       showCor = document.getElementById('res-correct');
       showWro = document.getElementById('res-wrong');
       cont =  document.getElementById('cont');
-      console.log('answer is true');
+  //    console.log('answer is true');
     } else {
-      console.log('answer is false');
+  //    console.log('answer is false');
       wroAns = document.getElementById('ans-True');
       corAns = document.getElementById('ans-False');
       showCor = document.getElementById('res-correct');
@@ -347,7 +347,7 @@ function questionTypeText(currentQuestion) {
 
 function typeOfQuestion(currentQ) {
   NumberQuestion++;
-  console.log('currentQ',currentQ);
+//  console.log('currentQ',currentQ);
   if (NumberQuestion > puzzleData.length) {
 
       window.location = 'success.html';

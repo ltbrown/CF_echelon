@@ -1,21 +1,22 @@
-var currentStage;
-getLocal();
-
-
 
     var door = document.getElementById('door');
     var prize = document.getElementById('prize');
 
     var tempName = localStorage.getItem('AgentName');
     var tempAlias = localStorage.getItem('AgentAlias');
+  //  console.log('tempname',tempName);
+  //  console.log('tempalias',tempAlias);
     var userName = JSON.parse(tempName);
     var userAlias = JSON.parse(tempAlias);
+  //  console.log('username',userName);
+  //  console.log('useralias',userAlias);
 
     var putAlias = document.getElementById('putAlias');
 
     var writeAlias = function() {
-      putAlias.innerHTML = userAlias;
-  
+  //    putAlias.innerHTML = userAlias;
+      putAlias.innerHTML = 'treu';
+
 
     writeAlias();
 

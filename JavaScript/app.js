@@ -139,8 +139,10 @@ localize(1);
 //Add user name to localStorage
 
 if ($('#user-button')) {
+
   var userButton = $('#user-button');
   userButton.on('click', function(e) {
+    console.log('acceptbuttonclicked');
     var agentName = $('#agent-name');
     var agentAlias = $('#agent-alias');
     var error = $('#input-error');
@@ -148,13 +150,15 @@ if ($('#user-button')) {
     if (agentName.val() == '' || agentAlias.val() == '') {
       error.removeClass('hidden').addClass('visible');
     } else {
-      tempAgentName = JSON.stringify(agentName.value);
-      tempAgentAlias = JSON.stringify(agentAlias.value);
+    //  console.log(agentName.val());
+      tempAgentName = JSON.stringify(agentName.val());
+      tempAgentAlias = JSON.stringify(agentAlias.val());
       localStorage.setItem('AgentName', tempAgentName);
       localStorage.setItem('AgentAlias', tempAgentAlias);
+    //  console.log(JSON.parse(localStorage.getItem('AgentAlias')));
       agentName.value = '';
       agentAlias.value = '';
-      window.location.href = 'puzzle10.html';
+      window.location.href = 'puzzles.html';
     }
   });
 }
